@@ -138,3 +138,26 @@ function createErrorPageData(url: string, statusCode: number, loadTimeMs: number
   };
 }
 
+export async function crawlSite(startUrl: string): Promise<PageData[]> {
+  const parsedBase = new URL(startUrl);
+  const baseOrigin = parsedBase.origin;
+
+  // Fetch Homepage
+  const homepageResult = await fetchAndParsePage(startUrl, baseOrigin);
+  const pages: PageData[] = [homepageResult.pageData];
+
+  // Select up to 4 unique internal links
+  const targetInternalUrls = homepageResult.foundInternalLinks.slice(0, 4);
+
+  // Parallel Crawl using Promise.allSettled for safety
+  const internalPagePromises = targetInternalUrls.map((url) => fetchAndParsePage(url, baseOrigin));
+  const results = await Promise.allSettled(internalPagePromises);
+
+  results.forEach((res) => {
+    if (res.status === 'fulfilled') {
+      pages.push(res.value.pageData);
+    }
+  });
+
+  return pages;
+}
