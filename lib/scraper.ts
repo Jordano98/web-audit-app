@@ -115,3 +115,26 @@ export async function fetchAndParsePage(url: string, baseOrigin: string): Promis
     };
   }
 }
+
+function createErrorPageData(url: string, statusCode: number, loadTimeMs: number, errorMsg: string): PageData {
+  return {
+    url,
+    statusCode: statusCode || 500,
+    success: false,
+    loadTimeMs,
+    title: '',
+    metaDescription: '',
+    h1Text: '',
+    h2Count: 0,
+    ctaTexts: [],
+    weakCtaTexts: [],
+    imageCount: 0,
+    imagesMissingAlt: 0,
+    internalLinksCount: 0,
+    externalLinksCount: 0,
+    wordCount: 0,
+    error: errorMsg,
+    score: 0,
+  };
+}
+
