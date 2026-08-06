@@ -18,3 +18,19 @@ npm run dev
 3. Deduplicates URLs and selects the first 4 unique internal URLs prioritizing primary navigation links.
 
 > ⚠️ **Note on Load Time:** The reported load time measures server-side HTTP request fetch duration from the Node.js backend runtime. It is **NOT** a frontend browser performance metric (e.g. Core Web Vitals).
+
+## 🚨 Severity Levels & Scoring Rules
+
+### Severity Thresholds
+- **Critical (-20 pts):** HTTP errors, missing `<title>`, missing `<h1>`, word count < 100.
+- **Warning (-10 pts):** Missing meta description, response duration > 2000ms, missing image `alt` text, weak CTAs, duplicate titles.
+- **Info (-3 pts):** High external outbound link count (>50).
+
+### Scoring Methodology & Weight Justification
+- **Page Score:** Starts at 100 points, deducting penalties down to 0.
+- **Overall Score:** Arithmetic average of all successfully audited page scores.
+
+**Why weights are assigned this way:**
+- **Critical (-20 pts):** Search engines require `<title>` and `<h1>` for primary indexing. Missing these tags or 4xx/5xx errors directly damages indexability.
+- **Warning (-10 pts):** Missing meta descriptions or slow load times hurt CTR and user experience but do not prevent search indexing entirely.
+- **Info (-3 pts):** High outbound link counts are informative for site owners but rarely result in direct penalties.
