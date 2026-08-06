@@ -63,6 +63,62 @@ export function analyzeAudit(targetUrl: string, rawPages: PageData[]): AuditRepo
         });
       }
 
+      // 2. Warning Rule Checks (-10 pts each)
+      if (!page.metaDescription) {
+        deductions += 10;
+        pageIssues.push({
+          id: `meta-${index}`,
+          url: page.url,
+          severity: 'warning',
+          message: 'Missing meta description.',
+          recommendation: 'Provide a concise meta description (120-160 characters) to improve click-through rates.',
+        });
+      }
+
+      if (page.loadTimeMs > 2000) {
+        deductions += 10;
+        pageIssues.push({
+          id: `slow-${index}`,
+          url: page.url,
+          severity: 'warning',
+          message: `Slow HTTP response time (${page.loadTimeMs}ms).`,
+          recommendation: 'Optimize server response time, enable caching, or use a CDN.',
+        });
+      }
+
+      if (page.imagesMissingAlt > 0) {
+        deductions += 10;
+        pageIssues.push({
+          id: `alt-${index}`,
+          url: page.url,
+          severity: 'warning',
+          message: `${page.imagesMissingAlt} image(s) missing alt text.`,
+          recommendation: 'Add descriptive alt attribute to images for accessibility (screen readers) and image search.',
+        });
+      }
+
+      if (page.weakCtaTexts.length > 0) {
+        deductions += 10;
+        pageIssues.push({
+          id: `cta-${index}`,
+          url: page.url,
+          severity: 'warning',
+          message: `Weak CTA text detected: "${page.weakCtaTexts.slice(0, 2).join(', ')}"`,
+          recommendation: 'Replace generic phrases like "Click Here" with high-intent action verbs like "Get Started".',
+        });
+      }
+
+      if (page.title && (titleMap.get(page.title)?.length || 0) > 1) {
+        deductions += 10;
+        pageIssues.push({
+          id: `dup-title-${index}`,
+          url: page.url,
+          severity: 'warning',
+          message: `Duplicate page title: "${page.title}"`,
+          recommendation: 'Ensure every page has a unique title tag to prevent cannibalization.',
+        });
+      }
+
 
     const calculatedScore = Math.max(0, 100 - deductions);
     processedPages.push({ ...page, score: calculatedScore });
