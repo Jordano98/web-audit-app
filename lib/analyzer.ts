@@ -119,6 +119,18 @@ export function analyzeAudit(targetUrl: string, rawPages: PageData[]): AuditRepo
         });
       }
 
+      // 3. Info Rule Checks (-3 pts each)
+      if (page.externalLinksCount > 50) {
+        deductions += 3;
+        pageIssues.push({
+          id: `ext-links-${index}`,
+          url: page.url,
+          severity: 'info',
+          message: `High number of external links (${page.externalLinksCount}).`,
+          recommendation: 'Review outbound links to ensure they remain relevant and high quality.',
+        });
+      }
+    }
 
     const calculatedScore = Math.max(0, 100 - deductions);
     processedPages.push({ ...page, score: calculatedScore });
