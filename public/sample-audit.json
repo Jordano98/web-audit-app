@@ -1,0 +1,162 @@
+{
+  "targetUrl": "https://example-sample-site.com",
+  "timestamp": "2026-08-06T12:00:00.000Z",
+  "overallScore": 73,
+  "summary": {
+    "totalPages": 5,
+    "successfulPages": 5,
+    "failedPages": 0,
+    "criticalIssuesCount": 2,
+    "warningIssuesCount": 4,
+    "infoIssuesCount": 1,
+    "avgLoadTimeMs": 850,
+    "pagesMissingTitle": 1,
+    "pagesMissingMetaDesc": 2,
+    "pagesMissingH1": 1,
+    "totalImagesMissingAlt": 4,
+    "totalCtasDetected": 6
+  },
+  "pages": [
+    {
+      "url": "https://example-sample-site.com",
+      "statusCode": 200,
+      "success": true,
+      "loadTimeMs": 420,
+      "title": "Example Corporate Homepage",
+      "metaDescription": "Welcome to our sample business website providing modern cloud services.",
+      "h1Text": "Transform Your Digital Future",
+      "h2Count": 3,
+      "ctaTexts": ["get started", "contact us"],
+      "weakCtaTexts": [],
+      "imageCount": 5,
+      "imagesMissingAlt": 1,
+      "internalLinksCount": 12,
+      "externalLinksCount": 4,
+      "wordCount": 450,
+      "score": 90
+    },
+    {
+      "url": "https://example-sample-site.com/about",
+      "statusCode": 200,
+      "success": true,
+      "loadTimeMs": 610,
+      "title": "About Our Team",
+      "metaDescription": "",
+      "h1Text": "About Us",
+      "h2Count": 2,
+      "ctaTexts": ["read more"],
+      "weakCtaTexts": ["read more"],
+      "imageCount": 3,
+      "imagesMissingAlt": 2,
+      "internalLinksCount": 6,
+      "externalLinksCount": 2,
+      "wordCount": 280,
+      "score": 70
+    },
+    {
+      "url": "https://example-sample-site.com/services",
+      "statusCode": 200,
+      "success": true,
+      "loadTimeMs": 1100,
+      "title": "",
+      "metaDescription": "Explore our digital consultation and web engineering services.",
+      "h1Text": "Our Services",
+      "h2Count": 4,
+      "ctaTexts": ["learn more"],
+      "weakCtaTexts": ["learn more"],
+      "imageCount": 4,
+      "imagesMissingAlt": 1,
+      "internalLinksCount": 8,
+      "externalLinksCount": 1,
+      "wordCount": 320,
+      "score": 60
+    },
+    {
+      "url": "https://example-sample-site.com/blog",
+      "statusCode": 200,
+      "success": true,
+      "loadTimeMs": 950,
+      "title": "Latest Insights & Articles",
+      "metaDescription": "",
+      "h1Text": "",
+      "h2Count": 6,
+      "ctaTexts": ["click here"],
+      "weakCtaTexts": ["click here"],
+      "imageCount": 8,
+      "imagesMissingAlt": 0,
+      "internalLinksCount": 15,
+      "externalLinksCount": 60,
+      "wordCount": 850,
+      "score": 57
+    },
+    {
+      "url": "https://example-sample-site.com/contact",
+      "statusCode": 200,
+      "success": true,
+      "loadTimeMs": 1170,
+      "title": "Contact Us Today",
+      "metaDescription": "Reach out to our customer support team for inquiries.",
+      "h1Text": "Get in Touch",
+      "h2Count": 1,
+      "ctaTexts": ["submit inquiry"],
+      "weakCtaTexts": [],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinksCount": 4,
+      "externalLinksCount": 0,
+      "wordCount": 190,
+      "score": 90
+    }
+  ],
+  "issues": [
+    {
+      "id": "title-2",
+      "url": "https://example-sample-site.com/services",
+      "severity": "critical",
+      "message": "Missing HTML <title> tag.",
+      "recommendation": "Add a descriptive <title> tag (50-60 characters) for primary SEO indexing."
+    },
+    {
+      "id": "h1-3",
+      "url": "https://example-sample-site.com/blog",
+      "severity": "critical",
+      "message": "Missing main <h1> heading.",
+      "recommendation": "Add exactly one clear <h1> tag summarizing the page contents."
+    },
+    {
+      "id": "meta-1",
+      "url": "https://example-sample-site.com/about",
+      "severity": "warning",
+      "message": "Missing meta description.",
+      "recommendation": "Provide a concise meta description (120-160 characters)."
+    },
+    {
+      "id": "cta-1",
+      "url": "https://example-sample-site.com/about",
+      "severity": "warning",
+      "message": "Weak CTA text detected: \"read more\"",
+      "recommendation": "Replace generic phrases like \"Click Here\" with high-intent action verbs."
+    },
+    {
+      "id": "alt-1",
+      "url": "https://example-sample-site.com/about",
+      "severity": "warning",
+      "message": "2 image(s) missing alt text.",
+      "recommendation": "Add descriptive alt attribute to images for accessibility."
+    },
+    {
+      "id": "meta-3",
+      "url": "https://example-sample-site.com/blog",
+      "severity": "warning",
+      "message": "Missing meta description.",
+      "recommendation": "Provide a concise meta description (120-160 characters)."
+    },
+    {
+      "id": "ext-links-3",
+      "url": "https://example-sample-site.com/blog",
+      "severity": "info",
+      "message": "High number of external links (60).",
+      "recommendation": "Review outbound links to ensure they remain relevant."
+    }
+  ]
+}
