@@ -34,3 +34,8 @@ npm run dev
 - **Critical (-20 pts):** Search engines require `<title>` and `<h1>` for primary indexing. Missing these tags or 4xx/5xx errors directly damages indexability.
 - **Warning (-10 pts):** Missing meta descriptions or slow load times hurt CTR and user experience but do not prevent search indexing entirely.
 - **Info (-3 pts):** High outbound link counts are informative for site owners but rarely result in direct penalties.
+
+## 📣 Call to Action (CTA) Definitions
+
+- **CTA Definition:** Any `<button>`, `<input type="submit">`, or styled link (`.btn`, `.cta`) intended to drive conversion with actionable text (*Sign Up, Get Started, Contact Us*).
+- **Weak CTA Definition:** Identified CTAs using generic or low-intent text (e.g., *"click here"*, *"learn more"*, *"read more"*, *"submit"*, *"continue"*).
