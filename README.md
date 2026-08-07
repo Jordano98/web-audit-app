@@ -45,3 +45,9 @@ npm run dev
 - **Domain Scope:** Crawling is strictly restricted to the same origin; external links are recorded but not crawled.
 - **Server-Rendered Content:** Parsing relies on static HTML; client-side SPAs rendering purely in JavaScript without SSR may report missing tags.
 - **Network Access:** Target sites are assumed to allow automated HTTP GET requests without IP blocking or CAPTCHA walls.
+
+## 📁 Sample Raw Data Testing
+
+If a target site blocks scraping or times out, test the full dashboard UI using local sample data:
+1. Click **"Load Sample JSON"** in the top navigation bar.
+2. The dashboard will populate immediately using static data from `/public/sample-audit.json`.
