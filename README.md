@@ -39,3 +39,9 @@ npm run dev
 
 - **CTA Definition:** Any `<button>`, `<input type="submit">`, or styled link (`.btn`, `.cta`) intended to drive conversion with actionable text (*Sign Up, Get Started, Contact Us*).
 - **Weak CTA Definition:** Identified CTAs using generic or low-intent text (e.g., *"click here"*, *"learn more"*, *"read more"*, *"submit"*, *"continue"*).
+
+## 💭 Assumptions Made
+
+- **Domain Scope:** Crawling is strictly restricted to the same origin; external links are recorded but not crawled.
+- **Server-Rendered Content:** Parsing relies on static HTML; client-side SPAs rendering purely in JavaScript without SSR may report missing tags.
+- **Network Access:** Target sites are assumed to allow automated HTTP GET requests without IP blocking or CAPTCHA walls.
