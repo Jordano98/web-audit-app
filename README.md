@@ -128,3 +128,24 @@ If a target site blocks scraping or times out, test the full dashboard interface
 1. Submit an invalid domain (e.g., `https://this-site-does-not-exist-12345.org`).
 2. **Verify:**
 * App displays a graceful error alert message without crashing the server.
+
+
+## 🤖 AI Tools Usage
+
+AI tools were used as a collaborative assistant during the development of this application in the following ways:
+
+* **Scraper & Logic Architecture:** Assisted in optimizing the asynchronous crawling pipeline in Node.js.
+* **Cheerio DOM Parsing:** Guided the extraction strategy for SEO tags.
+* **Code Explanation & Quality:** Assisted in writing clear code documentation.
+
+---
+
+## 🚀 Future Improvements (With More Time)
+
+If granted additional development time, the following enhancements would be added:
+
+1. **Deeper SEO & Accessibility Diagnostics:** Expand audit metrics to evaluate:
+   * Open Graph & Twitter meta tags
+   * Canonical tag validity & sitemap checks
+   * Color contrast ratios (WCAG compliance)
+   * External link health checks (detecting 404 dead outbound links)
